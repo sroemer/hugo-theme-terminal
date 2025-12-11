@@ -1,8 +1,8 @@
 # Terminal
 
-**Demo: https://panr.github.io/hugo-theme-terminal-demo/**
+**Demo: <https://panr.github.io/hugo-theme-terminal-demo/>**
 
-**Create your own color scheme: https://panr.github.io/terminal-css/**
+**Create your own color scheme: <https://panr.github.io/terminal-css/>**
 
 ![Terminal](https://github.com/panr/hugo-theme-terminal/blob/master/images/terminal-theme.png?raw=true)
 
@@ -23,7 +23,7 @@
 - [How to edit the theme](#how-to-edit)
 - [Found a bug?](#bug)
 - [New cool idea or feature](#feature)
-- [Terminal theme user?](#terminal-theme-user)
+- [Support](#support)
 - [License](#license)
 
 ## Features
@@ -38,18 +38,16 @@
 
 - **`image`** (props required: **`src`**; props optional: **`alt`**, **`position`** (**left** is default | center | right), **`style`**)
   - e.g.
+
   ```go
   {{< image src="/img/hello.png" alt="Hello Friend" position="center" style="border-radius: 8px;" >}}
   ```
-- **`figure`** (same as `image`, plus few optional props: **`caption`**, **`captionPosition`** (left | **center** is default | right), **`captionStyle`**)
+
+- **`code`** (props required: **`language`**; props optional: **`title`**, **`open`**)
   - e.g.
+
   ```go
-  {{< figure src="/img/hello.png" alt="Hello Friend" position="center" style="border-radius: 8px;" caption="Hello Friend!" captionPosition="right" captionStyle="color: red;" >}}
-  ```
-- **`code`** (props required: **`language`**; props optional: **`title`**, **`id`**, **`expand`** (default "△"), **`collapse`** (default "▽"), **`isCollapsed`**)
-  - e.g.
-  ```go
-  {{< code language="css" title="Really cool snippet" id="1" expand="Show" collapse="Hide" isCollapsed="true" >}}
+  {{< code language="css" title="Really cool snippet" open="true" >}}
   pre {
     background: #1a1a1d;
     padding: 20px;
@@ -74,7 +72,7 @@
 
 #### Code highlighting
 
-A custom syntax highlighting based on PrismJS. All you need to do is to wrap you code like this:
+A custom syntax highlighting based on Chroma. All you need to do is to wrap you code like this:
 
 ````
 ```html
@@ -82,7 +80,9 @@ A custom syntax highlighting based on PrismJS. All you need to do is to wrap you
 ```
 ````
 
-**Supported languages**: actionscript, apacheconf, applescript, bash, c, clike, cmake, coffeescript, cpp, csharp, csp, css, css-extras, diff, django, docker, elixir, elm, erlang, flow, fsharp, git, go, graphql, haml, handlebars, haskell, http, java, javascript, json, jsx, kotlin, latex, less, llvm, makefile, markdown, markup, markup-templating, nasm, objectivec, ocaml, perl, php, php-extras, powershell, processing, pug, python, r, reason, ruby, rust, sass, scala, scheme, scss, sql, stylus, swift, textile, toml, tsx, twig, typescript, vim, visual-basic, wasm, yaml.
+You can find more here in the official Hugo [documentation](https://gohugo.io/content-management/syntax-highlighting/).
+
+**Supported languages**: <https://github.com/alecthomas/chroma?tab=readme-ov-file#supported-languages>
 
 ## How to start
 
@@ -133,7 +133,7 @@ This will clone the repository directly to the `themes/terminal` directory.
 git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal
 ```
 
-This will install the repository as a sumbodule in the `themes/terminal` directory.
+This will install the repository as a submodule in the `themes/terminal` directory.
 
 ⚠️ If you encounter any issues with:
 
@@ -161,7 +161,11 @@ languageCode = "en-us"
 # Add it only if you keep the theme in the `themes` directory.
 # Remove it if you use the theme as a remote Hugo Module.
 theme = "terminal"
-paginate = 5
+pagination.pagerSize = 5
+
+# Required for Chroma and the custom syntax highlighting.
+[markup.highlight]
+  noClasses = false
 
 [params]
   # dir name of your main content (default is `content/posts`).
@@ -202,6 +206,20 @@ paginate = 5
   # set title for the table of contents
   # can be overridden in a page's front-matter
   # TocTitle = "Table of Contents" # default
+
+  # Set date/time format for posts
+  # This will impact the date/time displayed on
+  # index.html, the posts list page, and on posts themselves
+  # This value can also be configured per-post on front matter
+  # If you have any issues with the timezone rendering differently
+  # than you expected, please ensure your timezone is correctly set
+  # on your server.
+  # This value can be customized according to Hugo documentation:
+  # https://gohugo.io/functions/time/format/
+  # Default value (no changes needed):
+  # dateFormat = "2006-01-02"
+  # Example format, with date, time, and timezone abbreviation:
+  # dateFormat = "2006-01-02 3:04:06 PM MST"
 
 
 [params.twitter]
@@ -258,13 +276,13 @@ paginate = 5
 
 ## Post archetype
 
-See the default `post` file params supported by the theme — https://github.com/panr/hugo-theme-terminal/blob/master/archetypes/posts.md
+See the default `post` file params supported by the theme — <https://github.com/panr/hugo-theme-terminal/blob/master/archetypes/posts.md>
 
 ## Add-ons
 
-- **Comments** — for adding comments to your blog posts please take a look at `layouts/partials/comments.html` https://github.com/panr/hugo-theme-terminal/blob/master/layouts/partials/comments.html.
-- **Extended Head** — please take a look at `layouts/partials/extended_head.html` https://github.com/panr/hugo-theme-terminal/blob/master/layouts/partials/extended_head.html
-- **Extended Footer** — please take a look at `layouts/partials/extended_footer.html` https://github.com/panr/hugo-theme-terminal/blob/master/layouts/partials/extended_footer.html
+- **Comments** — for adding comments to your blog posts please take a look at `layouts/partials/comments.html` <https://github.com/panr/hugo-theme-terminal/blob/master/layouts/partials/comments.html>.
+- **Extended Head** — please take a look at `layouts/partials/extended_head.html` <https://github.com/panr/hugo-theme-terminal/blob/master/layouts/partials/extended_head.html>
+- **Extended Footer** — please take a look at `layouts/partials/extended_footer.html` <https://github.com/panr/hugo-theme-terminal/blob/master/layouts/partials/extended_footer.html>
 
 ## How to edit the theme <a id="how-to-edit" />
 
@@ -293,13 +311,12 @@ This will help keeping the theme close to its roots, and also allow anyone who w
 
 Sounds OK? Cool, let's rock! 🤘
 
-## Terminal theme user?
+## Support
 
-I'd be happy to know more about you and what you are doing. If you want to share it, please make a contribution and [add your site to the list](https://github.com/panr/hugo-theme-terminal/blob/master/USERS.md)! 🤗
-
+If you like what I'm doing and want to support my work. You can do it [here](https://ko-fi.com/pan_r). Thank you! ♥️
 
 ## License
 
-Copyright © 2019-2024 Radosław Kozieł ([@panr](https://twitter.com/panr))
+Copyright © 2019-2025 Radek Kozieł ([@panr](https://rkoziel.com/))
 
 The theme is released under the MIT License. Check the [original theme license](https://github.com/panr/hugo-theme-terminal/blob/master/LICENSE.md) for additional licensing information.
